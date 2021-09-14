@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load it %}
+
+{% block content %}
+    <div class="list-group">
+    {% for type in food_type %}
+        <a class="list-group-item list-group-item-action flex-column" href="#{{ type.id }}">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-primary">{{ type.name }}</h5>
+                <small data-toggle="tooltip" data-placement="top"
+                       data-timestamp=""
+                       data-delay="500">
+                </small>
+            </div>
+        </a>
+    {% endfor %}
+    {% for food in foods %}
+    {% for type in food_type %}
+    {% if food.food_type.id == type.id %}
+        <a class="list-group-item list-group-item-action flex-column" id="{{ type.id }}">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-primary">{{ type.name }}</h5>
+            </div>
+        </a>
+        {{ food_type|re:type }}
+    {% endif %}
+    {% endfor %}
+
+        <a class="list-group-item list-group-item-action flex-column">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1 text-success">{{ food.name }}</h5>
+                <small data-toggle="tooltip" data-placement="top"
+                       data-timestamp=""
+                       data-delay="500">
+                </small>
+            </div>
+            <p class="mb-1">{{ food.name }}</p>
+        </a>
+    {% endfor %}
+    </div>
+{% endblock %}
