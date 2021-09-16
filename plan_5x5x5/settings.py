@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-h0__v*0dqe#b85xaam*hjv^ygiu)0_ki(7wdjvrs_$b5lnnzr&'
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-h0__v*0dqe#b85xaam*hjv^ygiu)0_ki(7wdjvrs_$b5lnnzr&')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-h0__v*0dqe#b85xaam*hjv^ygiu)0_ki(7wdjvrs_$b5lnnzr&')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -97,7 +97,7 @@ if not DEBUG:
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'memorytx$5x5x5_plan',
             'USER': 'memorytx',
-            'PASSWORD': os.environ['DATABASE_PASSWORD'],
+            'PASSWORD': os.getenv('DATABASE_PASSWORD'),
             'HOST': 'memorytx.mysql.pythonanywhere-services.com',
         }
     }
