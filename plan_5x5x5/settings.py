@@ -76,14 +76,17 @@ WSGI_APPLICATION = 'plan_5x5x5.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# CREATE USER '5x5x5_plan'@'%' IDENTIFIED WITH caching_sha2_password BY '_CGAU(zJ]er0R9SN#A.B1~.sH{UiFIH9#0<nzxNOhO>ELt~$';
+# GRANT ALL PRIVILEGES on 5x5x5_plan.* TO '5x5x5_plan'@'%';
+# FLUSH PRIVILEGES;
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': '5x5x5_plan',
-        'USER': 'any',
-        'PASSWORD': 'PEVp9r5OziNsYVnP',
-        'HOST': '192.168.214.128',
+        'USER': '5x5x5_plan',
+        'PASSWORD': '_CGAU(zJ]er0R9SN#A.B1~.sH{UiFIH9#0<nzxNOhO>ELt~$',
+        'HOST': '192.168.214.132',
         'PORT': '3306',
     }
 }
